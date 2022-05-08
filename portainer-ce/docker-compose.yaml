@@ -7,8 +7,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /volume1/docker/portainer-ce:/data
     ports:
-      - 9000:9000
+      - [LOCAL_PORT]:[CONTAINER_PORT]
     restart: always
   
-
-      
+# run this headless in term \o/

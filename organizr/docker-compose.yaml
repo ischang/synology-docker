@@ -5,11 +5,11 @@ services:
     image: organizr/organizr:latest
     environment:
       - TZ=America/New_York
-      - GUID=100
-      - PUID=1028    
+      - GUID=[GID]
+      - PUID=[PID]   
     volumes:
       - /volume1/docker/organizr/config:/config:rw
     ports:
-      - 8286:443
-      - 8285:80
+      - [LOCAL_PORT]:[CONTAINER_PORT]
+      - [LOCAL_PORT]:[CONTAINER_PORT]
     restart: always

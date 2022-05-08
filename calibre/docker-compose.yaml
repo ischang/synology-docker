@@ -5,13 +5,19 @@ services:
     image: linuxserver/calibre:latest
     environment:
       - TZ=America/New_York
-      - PGID=100
-      - PUID=1028
+      - PGID=[GID]
+      - PUID=[UID]
     volumes:
       - /volume1/library/Books:/config/Calibre_Library:rw
       - /volume1/docker/calibre/upload:/upload:rw
       - /volume1/docker/calibre/plugins:/plugins:rw
       - /volume1/docker/calibre/config:/config:rw
     ports:
-      - 24880:8080
+      - [LOCAL_PORT]:[CONTAINER_PORT]
     restart: always
+
+
+# for this to work through reverse proxy, add custom headers
+  # X-Scheme: $scheme
+  # Upgrade: $http_upgrade
+  # Connection: $connection_upgrade

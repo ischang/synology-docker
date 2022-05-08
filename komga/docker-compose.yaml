@@ -5,11 +5,11 @@ services:
     image: gotson/komga:latest
     environment:
       - TZ=America/New_York
-      - GUID=100
-      - PUID=1028
+      - GUID=[GID]
+      - PUID=[PID]
     volumes:
       - /volume1/docker/komga/data:/data:rw
       - /volume1/docker/komga/config:/config:rw
     ports:
-      - 7080:8080
+      - [LOCAL_PORT]:[CONTAINER_PORT]
     restart: always

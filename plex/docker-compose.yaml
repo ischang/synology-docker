@@ -1,0 +1,16 @@
+version: "3"
+services:  
+  plex-media-server:
+    container_name: plex-media-server
+    image: plexinc/pms-docker:latest
+    environment:
+      - TZ=America/New_York
+      - PLEX_GID=100
+      - PLEX_UID=1028 
+    volumes:
+      - /volume1/media:/media:rw
+      - /volume1/docker/plex/transcode:/transcode:rw
+      - /volume1/docker/plex/data:/data:rw
+      - /volume1/docker/plex/config:/config:rw
+    network_mode: host
+    restart: always

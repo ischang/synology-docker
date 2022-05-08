@@ -15,3 +15,5 @@ services:
     ports:
       - [LOCAL_PORT]:[CONTAINER_PORT]
     restart: always
+
+# this is run as part of the calibre stack in portainer

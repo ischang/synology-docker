@@ -10,6 +10,9 @@ for all docker-compose files:
 for updates (if not using portainer-ce): 
 `docker-compose down && docker-compose pull && docker-compose up -d` 
 
-other notes:
+notes:
 - PMS needs to run in network_mode or local networks can't discover it
+
+other, pretty irrelevant notes:
 - for tailscale purposes: https://forums.plex.tv/t/ability-to-manually-set-public-ip-for-remote-access/189111/24?utm_source=pocket_mylist
+- certs were created with acme https://github.com/acmesh-official/acme.sh/wiki/Synology-NAS-Guide altho i have to test if the CRON renewal actually works eventually

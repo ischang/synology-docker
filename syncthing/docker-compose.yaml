@@ -10,7 +10,7 @@ services:
     volumes:
       - /volume1/docker/syncthing/config:/config
       - /volume1/docker/syncthing/data1:/data1
-      - /volume1/docker/syncthing/data2:/data2
+      - /volume1/downloads/seedbox_downloads:/seedbox_downloads:rw
     ports:
       - [LOCAL_PORT]:[CONTAINER_PORT]
       - 22000:22000/tcp

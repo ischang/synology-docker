@@ -20,3 +20,13 @@ for pruning:
 other, pretty irrelevant notes:
 - for tailscale purposes: https://forums.plex.tv/t/ability-to-manually-set-public-ip-for-remote-access/189111/24?utm_source=pocket_mylist
 - certs were created with acme https://github.com/acmesh-official/acme.sh/wiki/Synology-NAS-Guide altho i have to test if the CRON renewal actually works eventually
+
+## other stuff
+recursive hard linking: 
+`cp -lR /original /other`
+
+checking inode #
+`ln -i` 
+
+replace NUM with inode# to check other nodes
+`find . -inum NUM`

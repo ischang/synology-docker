@@ -26,7 +26,7 @@ recursive hard linking:
 `cp -lR /original /other`
 
 checking inode #
-`ln -i` 
+`ls -i` 
 
 replace NUM with inode# to check other nodes
 `find . -inum NUM`

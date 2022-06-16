@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - TZ=America/New_York
+      - PGID=[[PGID]]
+      - PUID=[[PUID]]
+    volumes:
+      - /volume1/docker/sabnzbd/config:/config
+      - /volume1/downloads/usenet_downloads:/usenet_downloads #optional
+      - /volume1/downloads/usenet_downloads/incomplete:/incomplete_downloads #optional
+    ports:
+      - 8777:8080
+      - 9090:9090
+    restart: unless-stopped

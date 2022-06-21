@@ -23,7 +23,7 @@ services:
     labels:
       - flame.type=application
       - flame.name=Calibre
-      - flame.url=https://calibre.thechangcuellos.com
+      - flame.url=[[flame-url]]
       - flame.icon=dog
       
   calibre-web:
@@ -46,5 +46,5 @@ services:
     labels:
       - flame.type=application
       - flame.name=Calibre-Web
-      - flame.url=https://calibre-web.thechangcuellos.com
+      - flame.url=[[flame-url]]
       - flame.icon=rabbit

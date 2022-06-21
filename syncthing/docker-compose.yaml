@@ -5,17 +5,20 @@ services:
     image: lscr.io/linuxserver/syncthing:latest
     environment:
       - TZ=America/New_York
-      - PGID=[GID]
-      - PUID=[PID]
+      - PGID=[[PGID]]
+      - PUID=[[PUID]]
     volumes:
       - /volume1/docker/syncthing/config:/config
       - /volume1/docker/syncthing/data1:/data1
       - /volume1/downloads/seedbox_downloads:/seedbox_downloads:rw
     ports:
-      - [LOCAL_PORT]:[CONTAINER_PORT]
+      - 8384:8384
       - 22000:22000/tcp
       - 22000:22000/udp
       - 21027:21027/udp
     restart: unless-stopped
-
-# default ports from lscr.io
+    labels:
+      - flame.type=application
+      - flame.name=Syncthing
+      - flame.url=[[flame-url]]
+      - flame.icon=panda

@@ -6,7 +6,7 @@ services:
     environment:
       - TZ=America/New_York
       - GUID=[[GUID]]
-      - PUID=[[PUID]]  
+      - PUID=[[PUID]] 
     volumes:
       - /volume1/docker/sonarr/config:/config
       - /volume1/media/Dramas:/dramas
@@ -15,8 +15,13 @@ services:
       - /volume1/downloads/seedbox_downloads:/seedbox_downloads
       - /volume1/downloads/usenet_downloads:/usenet_downloads
     ports:
-      - [[LOCALPORT]]:[[CONTAINERPORT]]
+      - 8989:8989
     restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Sonarr
+      - flame.url=https://sonarr.thechangcuellos.com
+      - flame.icon=pig-variant-outline
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -24,7 +29,7 @@ services:
     environment:
       - TZ=America/New_York
       - GUID=[[GUID]]
-      - PUID=[[PUID]]  
+      - PUID=[[PUID]] 
     volumes:
       - /volume1/docker/radarr/config:/config
       - /volume1/media/Movies:/movies
@@ -32,19 +37,71 @@ services:
       - /volume1/downloads/seedbox_downloads:/seedbox_downloads
       - /volume1/downloads/usenet_downloads:/usenet_downloads
     ports:
-      - [[LOCALPORT]]:[[CONTAINERPORT]]
+      - 7878:7878
     restart: unless-stopped
-
-  jackett:
-    image: lscr.io/linuxserver/jackett:latest
-    container_name: jackett
+    labels:
+      - flame.type=application
+      - flame.name=Radarr
+      - flame.url=https://radarr.thechangcuellos.com
+      - flame.icon=sheep
+   
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
     environment:
       - TZ=America/New_York
       - GUID=[[GUID]]
-      - PUID=[[PUID]]  
+      - PUID=[[PUID]] 
     volumes:
-      - /volume1/docker/jackett/config:/config
-      - /volume1/docker/jackett/downloads:/downloads
+      - /volume1/docker/bazarr/config:/config
+      - /volume1/media/Movies:/movies 
+      - /volume1/media/Shows:/shows 
+      - /volume1/media/Dramas:/dramas
     ports:
-      - [[LOCALPORT]]:[[CONTAINERPORT]]
+      - 6767:6767
     restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Bazarr
+      - flame.url=https://bazarr.thechangcuellos.com
+      - flame.icon=owl
+      
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - TZ=America/New_York
+      - GUID=[[GUID]]
+      - PUID=[[PUID]] 
+    volumes:
+      - /volume1/docker/readarr/config:/config
+      - /volume1/library/Books:/books #optional
+      - /volume1/downloads/seedbox_downloads:/seedbox_downloads
+      - /volume1/downloads/seedbox_downloads:/usenet_downloads#optional
+      - /volume1/docker/calibre/upload:/upload
+    ports:
+      - 8787:8787
+    restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Readarr
+      - flame.url=https://readarr.thechangcuellos.com
+      - flame.icon=penguin
+    
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+      - TZ=America/New_York
+      - GUID=[[GUID]]
+      - PUID=[[PUID]]
+    volumes:
+      - /volume1/docker/prowlarr/config:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Prowlarr
+      - flame.url=https://prowlarr.thechangcuellos.com
+      - flame.icon=unicorn-variant

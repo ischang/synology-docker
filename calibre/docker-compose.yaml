@@ -1,3 +1,8 @@
+# for calibre to work through reverse proxy, add custom headers
+  # X-Scheme: $scheme
+  # Upgrade: $http_upgrade
+  # Connection: $connection_upgrade
+
 version: "3"
 services:
   calibre:
@@ -5,19 +10,41 @@ services:
     image: linuxserver/calibre:latest
     environment:
       - TZ=America/New_York
-      - PGID=[GID]
-      - PUID=[UID]
+      - PGID=[[PGID]]
+      - PUID=[[PUID]]
     volumes:
       - /volume1/library/Books:/config/Calibre_Library:rw
       - /volume1/docker/calibre/upload:/upload:rw
       - /volume1/docker/calibre/plugins:/plugins:rw
       - /volume1/docker/calibre/config:/config:rw
     ports:
-      - [LOCAL_PORT]:[CONTAINER_PORT]
+      - 24880:8080
     restart: always
-
-
-# for this to work through reverse proxy, add custom headers
-  # X-Scheme: $scheme
-  # Upgrade: $http_upgrade
-  # Connection: $connection_upgrade
+    labels:
+      - flame.type=application
+      - flame.name=Calibre
+      - flame.url=https://calibre.thechangcuellos.com
+      - flame.icon=dog
+      
+  calibre-web:
+    container_name: calibre-web 
+    image: linuxserver/calibre-web:latest
+    environment:
+      - TZ=America/New_York
+      - PGID=[[PGID]]
+      - PUID=[[PUID]]
+      - DOCKER_MODS=linuxserver/calibre-web:calibre
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:calibre-web
+      - TP_THEME=hotpink
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+    volumes:
+      - /volume1/library/Books:/books:rw
+      - /volume1/docker/calibre-web/config:/config:rw
+    ports:
+      - 8083:8083
+    restart: always
+    labels:
+      - flame.type=application
+      - flame.name=Calibre-Web
+      - flame.url=https://calibre-web.thechangcuellos.com
+      - flame.icon=rabbit

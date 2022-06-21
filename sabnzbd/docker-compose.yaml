@@ -15,3 +15,8 @@ services:
       - 8777:8080
       - 9090:9090
     restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Sabnzbd
+      - flame.url=[[flame-url]]
+      - flame.icon=tortoise

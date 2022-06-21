@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  flame:
+    image: pawelmalak/flame:latest
+    container_name: flame
+    volumes:
+      - /volume1/docker/flame/config:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration feature
+    ports:
+      - 5005:5005
+    secrets:
+      - password 
+    environment:
+      - PASSWORD_FILE=/volume1/docker/flame/password
+    restart: unless-stopped
+    labels:
+      - flame.type=application
+      - flame.name=Flame
+      - flame.url=[[flame-url]]
+      - flame.icon=fishbowl-outline
+secrets:
+  password:
+    file: /volume1/docker/flame/password

@@ -7,7 +7,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /volume1/docker/portainer-ce:/data
     ports:
-      - [LOCAL_PORT]:[CONTAINER_PORT]
+      - 9000:9000
     restart: always
-  
-# run this headless in term \o/
+    labels:
+      - flame.type=application
+      - flame.name=Portainer
+      - flame.url=[[flame-url]]
+      - flame.icon=jellyfish-outline

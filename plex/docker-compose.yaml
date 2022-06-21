@@ -14,3 +14,8 @@ services:
       - /volume1/docker/plex/config:/config:rw
     network_mode: host
     restart: always
+    labels:
+      - flame.type=application
+      - flame.name=Plex
+      - flame.url=[[flame=url]]
+      - flame.icon=cat

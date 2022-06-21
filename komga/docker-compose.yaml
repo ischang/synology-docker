@@ -5,11 +5,17 @@ services:
     image: gotson/komga:latest
     environment:
       - TZ=America/New_York
-      - GUID=[GID]
-      - PUID=[PID]
+      - GUID=[[GUID]]
+      - PUID=[[PUID]]
     volumes:
-      - /volume1/docker/komga/data:/data:rw
+      - /volume1/library/Manga:/manga:rw
       - /volume1/docker/komga/config:/config:rw
+      - /volume1/docker/komga/data:/data:rw
     ports:
-      - [LOCAL_PORT]:[CONTAINER_PORT]
+      - 7080:8080
     restart: always
+    labels:
+      - flame.type=application
+      - flame.name=Komga
+      - flame.url=[[flame-url]]
+      - flame.icon=snail

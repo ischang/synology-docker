@@ -1,5 +1,7 @@
 # synology-docker
 
+![wow](screenie.JPG)
+
 backup templates for my docker compose files for machine agnostic configs
 mostly notes for myself in case i come back to this 900 years later after setting everything up and a one and done and i forget everything (because i will haha)
 

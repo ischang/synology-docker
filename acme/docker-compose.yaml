@@ -1,0 +1,14 @@
+version: '2'
+services:
+  acme:
+    container_name: acme
+    image: neilpang/acme.sh:latest
+    volumes:
+      - /volume1/docker/acme:/acme.sh
+    environment:            
+      - DNS_API="dns_gd"
+      - DOMAIN_NAME="[[DOMAIN_NAME]]"
+      - ACME_SH_EMAIL="[[ACME_EMAIL]]"
+    command: sh /acme.sh/acme.sh-docker.sh
+
+# cheerfully lifted from: https://gist.github.com/williamdes/a8f15c7acaa71cd4437c4a903784f0e1

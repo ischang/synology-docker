@@ -12,3 +12,5 @@ services:
     command: sh /acme.sh/acme.sh-docker.sh
 
 # cheerfully lifted from: https://gist.github.com/williamdes/a8f15c7acaa71cd4437c4a903784f0e1
+# add weekly Task Scheduler command: `docker exec acme --cron --insecure --home /acme.sh`
+# --insecure flag for deploying to Synology

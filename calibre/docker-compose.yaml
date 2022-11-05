@@ -33,9 +33,8 @@ services:
       - TZ=America/New_York
       - PGID=[[PGID]]
       - PUID=[[PUID]]
-      - DOCKER_MODS=linuxserver/calibre-web:calibre
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:calibre-web
-      - TP_THEME=hotpink
+      - DOCKER_MODS=linuxserver/calibre-web:calibre|ghcr.io/gilbn/theme.park:calibre-web|linuxserver/mods:universal-calibre
+      - TP_THEME=maroon
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
     volumes:
       - /volume1/library/Books:/books:rw

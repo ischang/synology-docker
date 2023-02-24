@@ -9,7 +9,7 @@ services:
     container_name: calibre
     image: linuxserver/calibre:latest
     environment:
-      - TZ=America/New_York
+      - TZ=America/Denver
       - PGID=[[PGID]]
       - PUID=[[PUID]]
     volumes:
@@ -30,7 +30,7 @@ services:
     container_name: calibre-web 
     image: linuxserver/calibre-web:latest
     environment:
-      - TZ=America/New_York
+      - TZ=America/Denver
       - PGID=[[PGID]]
       - PUID=[[PUID]]
       - DOCKER_MODS=linuxserver/calibre-web:calibre|ghcr.io/gilbn/theme.park:calibre-web|linuxserver/mods:universal-calibre

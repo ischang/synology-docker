@@ -6,22 +6,18 @@ services:
     environment:
       - TZ=America/Denver
       - GUID=[[GUID]]
-      - PUID=[[PUID]] 
+      - PUID=[[PUID]]
     volumes:
       - /volume1/docker/sonarr/config:/config
-      - /volume1/media/Dramas:/dramas
-      - /volume1/media/Anime:/anime
-      - /volume1/media/Shows:/shows
-      - /volume1/downloads/seedbox_downloads:/seedbox_downloads
-      - /volume1/downloads/usenet_downloads:/usenet_downloads
+      - /volume1/data:/data
     ports:
       - 8989:8989
     restart: unless-stopped
     labels:
       - flame.type=application
       - flame.name=Sonarr
-      - flame.url=[[flame-url]]
-      - flame.icon=pig-variant-outline
+      - flame.url=https://sonarr.thechangcuellos.com
+      - flame.icon=koala
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -29,20 +25,17 @@ services:
     environment:
       - TZ=America/Denver
       - GUID=[[GUID]]
-      - PUID=[[PUID]] 
+      - PUID=[[PUID]]
     volumes:
       - /volume1/docker/radarr/config:/config
-      - /volume1/media/Movies:/movies
-      - /volume1/media/Animation:/animation
-      - /volume1/downloads/seedbox_downloads:/seedbox_downloads
-      - /volume1/downloads/usenet_downloads:/usenet_downloads
+      - /volume1/data:/data
     ports:
       - 7878:7878
     restart: unless-stopped
     labels:
       - flame.type=application
       - flame.name=Radarr
-      - flame.url=[[flame-url]]
+      - flame.url=https://radarr.thechangcuellos.com
       - flame.icon=sheep
    
   bazarr:
@@ -51,19 +44,17 @@ services:
     environment:
       - TZ=America/Denver
       - GUID=[[GUID]]
-      - PUID=[[PUID]] 
+      - PUID=[[PUID]]
     volumes:
       - /volume1/docker/bazarr/config:/config
-      - /volume1/media/Movies:/movies 
-      - /volume1/media/Shows:/shows 
-      - /volume1/media/Dramas:/dramas
+      - /volume1/data:/data
     ports:
       - 6767:6767
     restart: unless-stopped
     labels:
       - flame.type=application
       - flame.name=Bazarr
-      - flame.url=[[flame-url]]
+      - flame.url=https://bazarr.thechangcuellos.com
       - flame.icon=owl
       
   readarr:
@@ -72,20 +63,17 @@ services:
     environment:
       - TZ=America/Denver
       - GUID=[[GUID]]
-      - PUID=[[PUID]] 
+      - PUID=[[PUID]]
     volumes:
       - /volume1/docker/readarr/config:/config
-      - /volume1/library/Books:/books #optional
-      - /volume1/downloads/seedbox_downloads:/seedbox_downloads
-      - /volume1/downloads/seedbox_downloads:/usenet_downloads
-      - /volume1/docker/calibre/upload:/upload
+      - /volume1/data:/data:rw
     ports:
       - 8787:8787
     restart: unless-stopped
     labels:
       - flame.type=application
       - flame.name=Readarr
-      - flame.url=[[flame-url]]
+      - flame.url=https://readarr.thechangcuellos.com
       - flame.icon=penguin
     
   prowlarr:
@@ -103,5 +91,5 @@ services:
     labels:
       - flame.type=application
       - flame.name=Prowlarr
-      - flame.url=[[flame-url]]
+      - flame.url=https://prowlarr.thechangcuellos.com
       - flame.icon=unicorn-variant

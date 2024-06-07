@@ -19,6 +19,7 @@ services:
       - /volume1/docker/calibre/config:/config:rw
     ports:
       - 24880:8080
+      - 24881:8081
     restart: always
     labels:
       - flame.type=application

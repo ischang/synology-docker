@@ -8,7 +8,7 @@ services:
       - GUID=[[GUID]]
       - PUID=[[PUID]]
     volumes:
-      - /volume1/library/Manga:/manga:rw
+      - /volume1/data/library/Manga:/manga:rw
       - /volume1/docker/komga/config:/config:rw
       - /volume1/docker/komga/data:/data:rw
     ports:

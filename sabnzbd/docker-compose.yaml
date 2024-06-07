@@ -9,8 +9,8 @@ services:
       - PUID=[[PUID]]
     volumes:
       - /volume1/docker/sabnzbd/config:/config
-      - /volume1/downloads/usenet_downloads:/usenet_downloads #optional
-      - /volume1/downloads/usenet_downloads/incomplete:/incomplete_downloads #optional
+      - /volume1/data/usenet_downloads/incomplete:/incomplete_downloads # optional
+      - /volume1/data/usenet_downloads:/usenet_downloads #optional
     ports:
       - 8777:8080
       - 9090:9090

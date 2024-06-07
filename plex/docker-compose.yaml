@@ -8,7 +8,7 @@ services:
       - PLEX_GID=[GID]
       - PLEX_UID=[UID]
     volumes:
-      - /volume1/media:/media:rw
+      - /volume1/data/media:/media:rw
       - /volume1/docker/plex/transcode:/transcode:rw
       - /volume1/docker/plex/data:/data:rw
       - /volume1/docker/plex/config:/config:rw

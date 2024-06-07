@@ -13,7 +13,7 @@ services:
       - PGID=[[PGID]]
       - PUID=[[PUID]]
     volumes:
-      - /volume1/library/Books:/config/Calibre_Library:rw
+      - /volume1/data/library/Books:/data/library/Books
       - /volume1/docker/calibre/upload:/upload:rw
       - /volume1/docker/calibre/plugins:/plugins:rw
       - /volume1/docker/calibre/config:/config:rw
@@ -37,7 +37,7 @@ services:
       - TP_THEME=maroon
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
     volumes:
-      - /volume1/library/Books:/books:rw
+      - /volume1/data/library/Books:/books:rw
       - /volume1/docker/calibre-web/config:/config:rw
     ports:
       - 8083:8083

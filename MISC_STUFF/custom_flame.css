@@ -8,45 +8,41 @@ rgb:
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
-/* App card description details */
-.AppCard_AppCardDetails__tbAhY span {
+.AppGrid_AppGrid__ZxiaC span {
   font-size: 14px !important;
   text-transform: lowercase !important;
 }
 
-/* App card header details */ 
-.AppCard_AppCardDetails__tbAhY h5{
+.AppGrid_AppGrid__ZxiaC h5 {
    font-weight: bold !important;
    text-transform: lowercase;
    font-size: 16px;
 }
 
 /* Bookmark link details */
-.BookmarkCard_Bookmarks__YhsfD a {
+.BookmarkCard_Bookmarks__alLCe a {
    text-transform: lowercase;
 }
 
-/* Section header details */
-.SectionHeadline_SectionHeadline__2gmr_ {
-   text-transform: lowercase !important;
+/* Wide bookmark cards to match applications*/
+.BookmarkCard_BookmarkCard__ooGTe {
+   padding: 15px !important;
+   margin-bottom: 0 !important;
+   border-radius: 0.7rem !important;
 }
 
-/*Bookmark header details */
-.BookmarkCard_BookmarkCard__1GmHc h3 {
-   text-transform: lowercase !important;
-}
-
-/* .ThemePreview_ColorsPreview__1zsZS p {
+/* Theme details */ 
+.ThemePreview_ThemePreview__YpgwQ p {
    text-transform: lowercase !important;
 }
 
 /* Change time font */
-.Header_Header__2oavH p {
+.Header_Header__GCJdR p {
   font-family: Helvetica;
 }
 
 /* Adding short quote */
-.Header_HeaderMain__ZUhf5 h1::after{
+.Header_HeaderMain__oLoBB h1::after{
     content: "\A \"It’s gonna take awhile. It’s normal to take awhile. You’ve just gotta fight your way through.\"";
     white-space: pre-wrap !important;
     line-height: 2px !important;
@@ -57,7 +53,7 @@ rgb:
 }
 
 /* Change spacing of header */
-.Header_HeaderMain__ZUhf5 h1 {
+.Header_HeaderMain__oLoBB h1 {
     line-height: 65%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -66,25 +62,25 @@ rgb:
 }
 
 /* Settings button style */
-.Home_SettingsButton__Qvn8C {
+.Home_SettingsButton__DrUPz {
     border-radius: 0.5rem !important;
     background-color: #DFD9D6 !important;
 }
 
 /* Wide Application tiles */
-.AppCard_AppCard__1V2_0 {
+.AppCard_AppCard__NPTM5 {
     padding: 15px !important;
     margin-bottom: 0 !important;
     border-radius: 0.7rem !important;
 }
 
 /* Application tile hover color */
-.AppCard_AppCard__1V2_0:hover {
+.AppCard_AppCard__NPTM5:hover {
     background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .AppCard_AppCard__1V2_0:hover {
+    .AppCard_AppCard__NPTM5:hover {
         backdrop-filter: blur(15px);
         background-color: rgba(0, 0, 0, 0.3) !important;
     }
@@ -92,7 +88,7 @@ rgb:
 
 /* Background image and font family*/
 body {
-    text-transform: lowercase !important;
+    
     font-family: Raleway !important;
     position: absolute;
     top: 0;
@@ -103,13 +99,13 @@ body {
 }
 
 /* 
-Other images: 
-https://images.photowall.com/products/64876/tender-clouds-pink.jpg?h=699&q=85
+background: url("https://images.photowall.com/products/64876/tender-clouds-pink.jpg?h=699&q=85");
 https://wallpaperaccess.com/full/2602311.jpg
 https://wallpaperaccess.com/full/1741507.jpg
 https://images.photowall.com/products/65920/hanging-palm-leaves-pink.jpg?h=699&q=85
 */
 
+/*
 body:before {
     content: "";
     position: fixed;
@@ -121,21 +117,22 @@ body:before {
     width: 100%;
     transform: scale(1.1);
 
-    /* Change the following only: */
+    //Change the following only:// 
     filter: blur(0.5rem);
-    opacity: 0.4;
+    opacity: 0.5;
 }
+*/
 
 /* Truncate Title and URL */
-.AppCard_AppCardIcon__8ZZTq {
+.AppCard_AppCardIcon__ThrUl {
     min-width: 35px;
 }
 
-.AppCard_AppCard__1V2_0 {
+.AppCard_AppCard__NPTM5 {
     min-width: 0
 }
 
-.AppCard_AppCardDetails__tbAhY {
+.AppCard_AppCardDetails__HgNoY {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

@@ -34,12 +34,13 @@ services:
       - TZ=America/Denver
       - PGID=[[PGID]]
       - PUID=[[PUID]]
-      - DOCKER_MODS=linuxserver/calibre-web:calibre|ghcr.io/gilbn/theme.park:calibre-web|linuxserver/mods:universal-calibre
+      - DOCKER_MODS=ghcr.io/gilbn/theme.park:calibre-web|linuxserver/mods:universal-calibre
       - TP_THEME=maroon
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
     volumes:
       - /volume1/data/library/Books:/books:rw
       - /volume1/docker/calibre-web/config:/config:rw
+      - /volume1/docker/calibre-web/custom-files:/custom-cont-init.d:ro
     ports:
       - 8083:8083
     restart: always

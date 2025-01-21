@@ -34,7 +34,7 @@ services:
       - TZ=America/Denver
       - PGID=[[PGID]]
       - PUID=[[PUID]]
-      - DOCKER_MODS=ghcr.io/gilbn/theme.park:calibre-web|linuxserver/mods:universal-calibre
+      - DOCKER_MODS=ghcr.io/themepark-dev/theme.park:calibre-web|linuxserver/mods:universal-calibre
       - TP_THEME=maroon
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1
     volumes:
